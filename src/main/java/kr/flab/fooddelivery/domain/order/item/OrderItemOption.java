@@ -1,10 +1,12 @@
 package kr.flab.fooddelivery.domain.order.item;
 
+import kr.flab.fooddelivery.domain.BaseEntity;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "order_item_options")
-public class OrderItemOption {
+public class OrderItemOption extends BaseEntity {
 
 
     @Id
@@ -18,5 +20,6 @@ public class OrderItemOption {
     private Long price;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "order_item_option_group_id")
     private OrderItemOptionGroup orderItemOptionGroup;
 }

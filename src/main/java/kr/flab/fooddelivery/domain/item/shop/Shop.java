@@ -2,11 +2,13 @@ package kr.flab.fooddelivery.domain.item.shop;
 
 
 
+import kr.flab.fooddelivery.domain.BaseEntity;
+
 import javax.persistence.*;
 
 @Entity
-@Table(name = "shop")
-public class Shop {
+@Table(name = "shops")
+public class Shop extends BaseEntity {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

@@ -5,6 +5,7 @@ import kr.flab.fooddelivery.domain.item.shop.Shop;
 import kr.flab.fooddelivery.domain.user.User;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.time.ZonedDateTime;
@@ -19,16 +20,19 @@ public class Order extends BaseEntity {
     private Long id;
 
     // 주문 시간
-    private ZonedDateTime orderTime;
+    @CreationTimestamp
+    private ZonedDateTime orderedTime;
 
     // 주문 상태
     private Status orderStatus;
 
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "shop_id")
     private Shop shop;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
     private User user;
 
     @Getter

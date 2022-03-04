@@ -18,6 +18,7 @@ public class Item extends BaseEntity {
     private String description;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "order_id")
     private Order order;
 
 

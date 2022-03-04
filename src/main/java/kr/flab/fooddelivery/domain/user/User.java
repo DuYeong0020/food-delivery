@@ -1,5 +1,6 @@
 package kr.flab.fooddelivery.domain.user;
 
+import com.sun.istack.NotNull;
 import kr.flab.fooddelivery.domain.BaseEntity;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -28,14 +29,17 @@ public class User extends BaseEntity {
     @Column(length = 8, nullable = false)
     private String nickname; // 유저 닉네임
 
+    @Column(nullable = false)
     private Position position; // 유저 포지션
 
     @Column(nullable = false)
     private String email; // 유저 이메일
 
     @Embedded
+    @Column(nullable = false)
     private Address address; // 주소
 
+    @Column(nullable = false)
     private String phoneNumber; // 핸드폰 번호
 
 
