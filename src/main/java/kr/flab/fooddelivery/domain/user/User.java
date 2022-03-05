@@ -2,14 +2,16 @@ package kr.flab.fooddelivery.domain.user;
 
 import kr.flab.fooddelivery.domain.Address;
 import kr.flab.fooddelivery.domain.BaseEntity;
+import lombok.Builder;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Entity
+@NoArgsConstructor
 @Getter
-@Table(name = "users")
+@Table(name = "user")
 public class User extends BaseEntity {
 
     @Id
@@ -20,20 +22,31 @@ public class User extends BaseEntity {
     private String userId;
     private String password;
     private String nickname;
-    private Position position;
     private String email;
+
+    private String authenticationCode;
 
     @Embedded
     private Address address;
     private String phoneNumber;
 
-    @Getter
-    @RequiredArgsConstructor
-    public enum Position {
-        USER("유저"),
-        PARTNER("파트너"),
-        MANAGER("관리자");
+    @Builder
+    public User(
+            String name,
+            String userId,
+            String password,
+            String nickname,
+            String email
+    ) {
+        // todo - validation
 
-        private final String description;
+        this.name = name;
+        this.userId = userId;
+        this.password = password;
+        this.nickname = nickname;
+        this.email = email;
     }
+
+    // 도메인 메서드...
+
 }
