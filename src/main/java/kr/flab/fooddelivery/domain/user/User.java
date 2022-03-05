@@ -1,6 +1,6 @@
 package kr.flab.fooddelivery.domain.user;
 
-import com.sun.istack.NotNull;
+import kr.flab.fooddelivery.domain.Address;
 import kr.flab.fooddelivery.domain.BaseEntity;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -8,41 +8,24 @@ import lombok.RequiredArgsConstructor;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "users")
 @Getter
+@Table(name = "users")
 public class User extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
-    private Long id; // PK
-
-    @Column(nullable = false)
-    private String name; // 유저 이름
-
-    @Column(nullable = false)
-    private String userId; // 유저 아이디
-
-    @Column(nullable = false)
-    private String password; // 유저 비밀번호
-
-    @Column(length = 8, nullable = false)
-    private String nickname; // 유저 닉네임
-
-    @Column(nullable = false)
-    private Position position; // 유저 포지션
-
-    @Column(nullable = false)
-    private String email; // 유저 이메일
+    private Long id;
+    private String name;
+    private String userId;
+    private String password;
+    private String nickname;
+    private Position position;
+    private String email;
 
     @Embedded
-    @Column(nullable = false)
-    private Address address; // 주소
-
-    @Column(nullable = false)
-    private String phoneNumber; // 핸드폰 번호
-
-
+    private Address address;
+    private String phoneNumber;
 
     @Getter
     @RequiredArgsConstructor
@@ -53,14 +36,4 @@ public class User extends BaseEntity {
 
         private final String description;
     }
-
-
-    @Embeddable
-    public class Address {
-        private String city;
-        private String street;
-        private String zipcode;
-    }
-
-
 }

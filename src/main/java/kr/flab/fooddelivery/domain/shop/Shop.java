@@ -1,27 +1,24 @@
-package kr.flab.fooddelivery.domain.item.shop;
+package kr.flab.fooddelivery.domain.shop;
 
 
 
 import kr.flab.fooddelivery.domain.BaseEntity;
+import lombok.Getter;
 
 import javax.persistence.*;
 
 @Entity
+@Getter
 @Table(name = "shops")
 public class Shop extends BaseEntity {
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    // 가게 이름
     private String name;
-
-    // 영업 여부
-    private Boolean OpenOrNot;
-
-    // 최소 주문 금액
+    private Boolean isOpen;  // TODO - change enum Status
     private Long minOrderPrice;
-    // 수수료 율
 
+    // 수수료 율
     // 수수료 누적액
 }
