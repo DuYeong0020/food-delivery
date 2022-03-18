@@ -8,7 +8,6 @@ import javax.persistence.*;
 
 @Getter
 @Entity
-@Table(name = "item_option_groups")
 public class ItemOptionGroup extends BaseEntity {
 
     @Id

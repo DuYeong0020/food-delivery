@@ -3,11 +3,12 @@ package kr.flab.fooddelivery.domain.item;
 import kr.flab.fooddelivery.domain.BaseEntity;
 import kr.flab.fooddelivery.domain.item.optiongroup.ItemOptionGroup;
 import kr.flab.fooddelivery.domain.order.Order;
+import lombok.Getter;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "items")
+@Getter
 public class Item extends BaseEntity {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)

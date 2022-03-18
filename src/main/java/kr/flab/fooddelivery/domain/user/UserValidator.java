@@ -1,7 +1,10 @@
 package kr.flab.fooddelivery.domain.user;
 
 public interface UserValidator {
-    void checkDuplicateUserId(String userId);
-    void checkEmail(String email);
-    void checkNickname(String nickname);
+
+    void checkRegisterUser(UserCommand.RegisterUserRequest request);
+
+    void checkModifyUser(UserCommand.ModifyUserRequest request);
+
+    void checkFindUserId(UserCriteria.FindUserCriteria criteria);
 }

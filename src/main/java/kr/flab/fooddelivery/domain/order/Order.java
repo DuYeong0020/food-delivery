@@ -11,7 +11,6 @@ import java.time.ZonedDateTime;
 
 @Getter
 @Entity
-@Table(name = "orders")
 public class Order extends BaseEntity {
 
     @Id

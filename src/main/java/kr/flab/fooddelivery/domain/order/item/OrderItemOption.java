@@ -7,7 +7,6 @@ import javax.persistence.*;
 
 @Entity
 @Getter
-@Table(name = "order_item_options")
 public class OrderItemOption extends BaseEntity {
 
     @Id

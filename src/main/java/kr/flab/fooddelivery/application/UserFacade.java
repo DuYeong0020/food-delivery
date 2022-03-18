@@ -21,6 +21,7 @@ public class UserFacade {
 //        user.getUserId()
 
         // 2. ManyToOne.. lazy ...  lazyLoadingInitial Exception
-        item.getItemOptionGroup().asdadasd
+//        item.getItemOptionGroup().asdadasd
+        return null;
     }
 }

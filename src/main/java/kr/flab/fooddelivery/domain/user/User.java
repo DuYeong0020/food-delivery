@@ -5,48 +5,49 @@ import kr.flab.fooddelivery.domain.BaseEntity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.util.StringUtils;
 
 import javax.persistence.*;
+import java.security.InvalidParameterException;
 
 @Entity
 @NoArgsConstructor
 @Getter
-@Table(name = "user")
 public class User extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
     private Long id;
-    private String name;
     private String userId;
     private String password;
     private String nickname;
     private String email;
-
-    private String authenticationCode;
-
     @Embedded
     private Address address;
     private String phoneNumber;
 
     @Builder
     public User(
-            String name,
             String userId,
             String password,
             String nickname,
-            String email
+            String email,
+            Address address
     ) {
-        // todo - validation
+        if (!StringUtils.hasText(userId)) throw new InvalidParameterException();
+        if (!StringUtils.hasText(password)) throw new InvalidParameterException();
+        if (!StringUtils.hasText(nickname)) throw new InvalidParameterException();
+        if (!StringUtils.hasText(email)) throw new InvalidParameterException();
+        if (address == null) throw new InvalidParameterException();
 
-        this.name = name;
         this.userId = userId;
         this.password = password;
         this.nickname = nickname;
         this.email = email;
-    }
+        this.address = address;
+        this.phoneNumber = null;
 
-    // 도메인 메서드...
+    }
 
 }
